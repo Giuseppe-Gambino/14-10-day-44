@@ -1,0 +1,62 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+  <!-- card -->
+  <div *ngFor="let post of postArr" class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ post.tags[0] }}</li>
+          <li class="list-group-item">{{ post.tags[1] }}</li>
+          <li class="list-group-item">{{ post.tags[2] }}</li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <a class="btn btn-primary" [routerLink]="['/detail', post.id]"
+          >Dettagli</a
+        >
+        <button class="btn btn-secondary ms-2" (click)="toggleEdit()">
+          Edit
+        </button>
+      </div>
+      <ng-content select="[form]">
+        <div *ngIf="isTrue" class="card-body">
+          <form #form="ngForm">
+            <input
+              type="text"
+              name="title"
+              class="form-control mb-2"
+              [(ngModel)]="post.title"
+              required
+              minlength="3"
+            />
+            <input
+              type="text"
+              name="tag1"
+              class="form-control mb-2"
+              [(ngModel)]="post.tags[0]"
+              required
+              minlength="3"
+            />
+            <input
+              type="text"
+              name="tag2"
+              class="form-control mb-2"
+              [(ngModel)]="post.tags[1]"
+              required
+              minlength="3"
+            />
+            <input
+              type="text"
+              name="tag3"
+              class="form-control mb-2"
+              [(ngModel)]="post.tags[2]"
+              required
+              minlength="3"
+            />
+            <button type="submit" class="btn btn-primary">Salva</button>
+          </form>
+        </div>
+      </ng-content>
+    </div>
+  </div>
+</div>
