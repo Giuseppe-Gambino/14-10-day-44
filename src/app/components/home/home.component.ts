@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  postArr: Ipost[] = [];
+
+  ngOnInit() {
+    this.postArr = totPost.posts;
+    // this.postArr = totPost.posts.slice(0, 4);
+    console.log('totpost', totPost);
+  }
+}

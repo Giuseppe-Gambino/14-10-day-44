@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { totPost } from '../../../../public/tot-post';
 import { Ipost } from '../../modules/ipost';
 
@@ -8,13 +8,7 @@ import { Ipost } from '../../modules/ipost';
   styleUrl: './preset-post.component.scss',
 })
 export class PresetPostComponent {
-  postArr: Ipost[] = [];
-
-  ngOnInit() {
-    this.postArr = totPost.posts;
-    // this.postArr = totPost.posts.slice(0, 4);
-    console.log('totpost', totPost);
-  }
+  @Input() postArr: Ipost[] = [];
 
   isTrue: boolean = false;
 
