@@ -8,12 +8,5 @@ import { Ipost } from '../../modules/ipost';
   styleUrl: './preset-post.component.scss',
 })
 export class PresetPostComponent {
-  @Input() postArr: Ipost[] = [];
-
-  isTrue: boolean = false;
-
-  toggleEdit() {
-    this.isTrue = !this.isTrue;
-    console.log(this.isTrue);
-  }
+  @Input() post!: Ipost;
 }
